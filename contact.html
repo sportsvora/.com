@@ -1737,278 +1737,860 @@ go(0);
      EDIT HERE: search for "EDIT" to change the 70% / 30% wording.
 ========================================================= -->
 
+
+</section>
+
+
 <section id="svo-section" aria-labelledby="svo-title">
-
 <style>
-#svo-section, #svo-section * { box-sizing: border-box; }
-
-#svo-section {
-    width: 100%;
-    padding: clamp(55px, 8vw, 95px) clamp(14px, 4vw, 24px);
-    background:
-        radial-gradient(circle at 10% 10%, rgba(242,140,24,.14), transparent 32%),
-        radial-gradient(circle at 92% 92%, rgba(179,0,27,.24), transparent 42%),
-        linear-gradient(135deg, #0b0203, #1d0508 55%, #0b0203);
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    overflow: hidden;
+#svo-section,
+#svo-section * {
+    box-sizing: border-box;
 }
 
-#svo-section .svo-wrap { max-width: 1180px; margin: 0 auto; }
+#svo-section {
+    --gold: #f2c15a;
+    --red: #b3001b;
+    width: 100%;
+    padding: 34px 14px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 8% 8%, rgba(242,140,24,.12), transparent 32%),
+        radial-gradient(circle at 95% 95%, rgba(179,0,27,.20), transparent 38%),
+        linear-gradient(135deg, #0b0203, #1d0508 55%, #0b0203);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
 
-/* ---------- HEADER ---------- */
-#svo-section .svo-head { text-align: center; max-width: 760px; margin: 0 auto 38px; }
+#svo-section .svo-wrap {
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+#svo-section button,
+#svo-section a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* HEADER */
+#svo-section .svo-head {
+    max-width: 650px;
+    margin: 0 auto 23px;
+    text-align: center;
+}
 
 #svo-section .svo-badge {
-    display: inline-flex; align-items: center; gap: 9px;
-    padding: 9px 18px; margin-bottom: 18px;
-    border: 1px solid rgba(242,193,90,.4); border-radius: 50px;
-    background: rgba(255,255,255,.06); color: #f2c15a;
-    font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 6px 12px;
+    margin-bottom: 11px;
+    border: 1px solid rgba(242,193,90,.4);
+    border-radius: 30px;
+    background: rgba(255,255,255,.05);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
 }
 
 #svo-section .svo-title {
-    margin: 0 0 14px; font-size: clamp(28px, 4.6vw, 46px);
-    line-height: 1.15; font-weight: 800; letter-spacing: -.7px;
+    margin: 0 0 9px;
+    font-size: clamp(23px, 3.4vw, 36px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -.5px;
 }
-#svo-section .svo-title span { color: #f2c15a; }
+
+#svo-section .svo-title span {
+    color: var(--gold);
+}
 
 #svo-section .svo-sub {
-    margin: 0; color: rgba(255,255,255,.72);
-    font-size: clamp(14px, 1.6vw, 16px); line-height: 1.8;
+    max-width: 590px;
+    margin: 0 auto;
+    color: rgba(255,255,255,.72);
+    font-size: 13px;
+    line-height: 1.7;
 }
 
-/* ---------- LAYOUT ---------- */
+/* MAIN LAYOUT */
 #svo-section .svo-grid {
-    display: grid; grid-template-columns: 300px 1fr;
-    gap: 24px; align-items: stretch;
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 15px;
+    align-items: stretch;
 }
 
-/* ---------- STEP LIST (left) ---------- */
-#svo-section .svo-nav { display: flex; flex-direction: column; gap: 8px; }
+/* STEP NAVIGATION */
+#svo-section .svo-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
 
 #svo-section .svo-nav button {
-    display: flex; align-items: center; gap: 12px; width: 100%;
-    padding: 11px 14px; border-radius: 16px; cursor: pointer; text-align: left;
-    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-    color: rgba(255,255,255,.75); font-family: inherit;
-    font-size: 13px; font-weight: 600; transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    min-height: 43px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 11px;
+    background: rgba(255,255,255,.045);
+    color: rgba(255,255,255,.78);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
 }
-#svo-section .svo-nav button b {
-    width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,.1); font-size: 13px; font-weight: 800; transition: all .3s ease;
-}
-#svo-section .svo-nav button:hover { border-color: rgba(242,193,90,.5); color: #fff; }
-#svo-section .svo-nav button.is-active {
-    background: linear-gradient(135deg, rgba(179,0,27,.55), rgba(179,0,27,.25));
-    border-color: #f2c15a; color: #fff; transform: translateX(5px);
-}
-#svo-section .svo-nav button.is-active b { background: #f2c15a; color: #1b0507; }
 
-/* ---------- SLIDESHOW (right) ---------- */
-#svo-section .svo-show {
-    position: relative; border-radius: 28px; overflow: hidden;
-    background: #12090a; border: 1px solid rgba(255,255,255,.14);
-    box-shadow: 0 26px 60px rgba(0,0,0,.5);
+#svo-section .svo-nav button b {
+    display: flex;
+    flex: 0 0 25px;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,.10);
+    font-size: 11px;
 }
-#svo-section .svo-stack { display: grid; }
+
+#svo-section .svo-nav button:hover,
+#svo-section .svo-nav button.is-active {
+    border-color: var(--gold);
+    background: rgba(179,0,27,.32);
+    color: #fff;
+}
+
+#svo-section .svo-nav button.is-active b {
+    background: var(--gold);
+    color: #1b0507;
+}
+
+/* SLIDESHOW */
+#svo-section .svo-show {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    background: #12090a;
+    box-shadow: 0 15px 36px rgba(0,0,0,.28);
+}
+
+#svo-section .svo-stack {
+    display: grid;
+    min-width: 0;
+}
 
 #svo-section .svo-slide {
-    grid-area: 1 / 1; position: relative; min-height: 520px;
-    display: flex; align-items: center;
-    opacity: 0; visibility: hidden; transform: translateX(26px);
-    transition: opacity .6s ease, transform .6s ease, visibility .6s;
+    position: relative;
+    grid-area: 1 / 1;
+    min-width: 0;
+    min-height: 405px;
+    display: flex;
+    align-items: center;
     background:
-        radial-gradient(circle at 85% 12%, rgba(242,193,90,.16), transparent 40%),
-        linear-gradient(160deg, #2b080d, #12090a);
+        radial-gradient(circle at 85% 12%, rgba(242,193,90,.10), transparent 38%),
+        linear-gradient(160deg, #26070b, #12090a);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(12px);
+    transition: opacity .3s ease, transform .3s ease, visibility .3s;
 }
-#svo-section .svo-slide.is-active { opacity: 1; visibility: visible; transform: none; }
+
+#svo-section .svo-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+}
 
 #svo-section .svo-in {
-    width: 100%; padding: 36px clamp(20px, 4vw, 42px) 70px;
-    display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 23px 22px 62px;
 }
 
 #svo-section .svo-step-tag {
-    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;
-    padding: 6px 14px; border-radius: 50px;
-    background: rgba(242,193,90,.14); border: 1px solid rgba(242,193,90,.45);
-    color: #f2c15a; font-size: 11px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: 1px solid rgba(242,193,90,.35);
+    border-radius: 25px;
+    background: rgba(242,193,90,.10);
+    color: var(--gold);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-#svo-section .svo-h { margin: 0 0 12px; font-size: clamp(23px, 3vw, 32px); font-weight: 800; line-height: 1.2; }
-#svo-section .svo-p { margin: 0 0 18px; color: rgba(255,255,255,.78); font-size: 14.5px; line-height: 1.85; }
-#svo-section .svo-p strong { color: #fff; }
-#svo-section .svo-p em { color: #f2c15a; font-style: normal; font-weight: 700; }
+#svo-section .svo-h {
+    margin: 0 0 10px;
+    font-size: clamp(19px, 2.3vw, 27px);
+    font-weight: 800;
+    line-height: 1.28;
+}
 
-#svo-section .svo-list { margin: 0 0 22px; padding: 0; list-style: none; display: grid; gap: 9px; }
+#svo-section .svo-p {
+    margin: 0 0 13px;
+    color: rgba(255,255,255,.76);
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+#svo-section .svo-p strong {
+    color: #fff;
+}
+
+#svo-section .svo-p em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 700;
+}
+
+#svo-section .svo-list {
+    display: grid;
+    gap: 7px;
+    margin: 0 0 17px;
+    padding: 0;
+    list-style: none;
+}
+
 #svo-section .svo-list li {
-    display: flex; gap: 11px; align-items: flex-start;
-    color: rgba(255,255,255,.88); font-size: 13.5px; line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: rgba(255,255,255,.88);
+    font-size: 11px;
+    line-height: 1.55;
 }
-#svo-section .svo-list i { color: #f2c15a; margin-top: 4px; }
+
+#svo-section .svo-list i {
+    flex: 0 0 auto;
+    margin-top: 3px;
+    color: var(--gold);
+}
 
 #svo-section .svo-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    min-height: 50px; padding: 13px 26px; border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 41px;
+    padding: 10px 17px;
+    border: 0;
+    border-radius: 30px;
     background: linear-gradient(135deg, #f2c15a, #d89416);
-    color: #1b0507 !important; text-decoration: none !important;
-    font-size: 13.5px; font-weight: 800;
-    box-shadow: 0 10px 24px rgba(242,193,90,.25); transition: transform .3s ease;
+    box-shadow: 0 6px 18px rgba(242,193,90,.16);
+    color: #1b0507 !important;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none !important;
+    transition: filter .2s ease;
 }
-#svo-section .svo-btn:hover { transform: translateY(-3px) scale(1.03); }
-#svo-section .svo-btn-red { background: #b3001b; color: #fff !important; box-shadow: 0 10px 24px rgba(179,0,27,.35); }
 
-/* ---------- VISUAL CARD (right of each slide) ---------- */
-#svo-section .svo-visual { display: flex; align-items: center; justify-content: center; }
+#svo-section .svo-btn:hover {
+    filter: brightness(1.08);
+}
+
+#svo-section .svo-btn-red {
+    background: linear-gradient(135deg, #c20b2a, #8c0017);
+    color: #fff !important;
+}
+
+/* VISUAL CARDS */
+#svo-section .svo-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
 
 #svo-section .svo-card {
-    position: relative; width: 100%; max-width: 330px;
-    padding: 24px 22px; border-radius: 24px; text-align: center;
-    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
-    box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    width: 100%;
+    max-width: 260px;
+    padding: 19px 15px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 18px;
+    background: rgba(255,255,255,.055);
+    box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    text-align: center;
 }
+
 #svo-section .svo-bigicon {
-    width: 86px; height: 86px; margin: 0 auto 16px; border-radius: 26px;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #f2c15a, #d89416); color: #1b0507; font-size: 38px;
-    box-shadow: 0 14px 30px rgba(242,193,90,.28);
-    animation: svoFloat 3.2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 63px;
+    height: 63px;
+    margin: 0 auto 12px;
+    border-radius: 19px;
+    background: linear-gradient(135deg, #f2c15a, #d89416);
+    box-shadow: 0 8px 20px rgba(242,193,90,.18);
+    color: #1b0507;
+    font-size: 28px;
+    animation: svoFloat 3.5s ease-in-out infinite;
 }
-@keyframes svoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-#svo-section .svo-card-title { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
-#svo-section .svo-card-text { color: rgba(255,255,255,.65); font-size: 12.5px; line-height: 1.6; }
+@keyframes svoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
 
-/* chat bubbles */
-#svo-section .svo-chat { display: grid; gap: 9px; margin-top: 16px; text-align: left; }
-#svo-section .svo-bub { max-width: 88%; padding: 9px 13px; border-radius: 14px; font-size: 12px; line-height: 1.5; }
-#svo-section .svo-bub-in  { background: rgba(255,255,255,.12); border-top-left-radius: 4px; }
-#svo-section .svo-bub-out { background: #1f7a4a; margin-left: auto; border-top-right-radius: 4px; }
+#svo-section .svo-card-title {
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 800;
+}
 
-/* 70 / 30 payment bar */
-#svo-section .svo-pay { margin-top: 18px; }
-#svo-section .svo-bar { display: flex; height: 46px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.18); }
-#svo-section .svo-bar div { display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; }
-#svo-section .svo-bar .a { width: 70%; background: linear-gradient(135deg, #f2c15a, #d89416); color: #1b0507; }
-#svo-section .svo-bar .b { width: 30%; background: rgba(255,255,255,.1); color: #fff; }
-#svo-section .svo-bar-note { display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; color: rgba(255,255,255,.7); font-weight: 600; }
+#svo-section .svo-card-text {
+    color: rgba(255,255,255,.68);
+    font-size: 10px;
+    line-height: 1.65;
+}
 
-/* photo mock */
+/* CHAT */
+#svo-section .svo-chat {
+    display: grid;
+    gap: 8px;
+    margin-top: 13px;
+    text-align: left;
+}
+
+#svo-section .svo-bub {
+    max-width: 95%;
+    padding: 8px 10px;
+    border-radius: 11px;
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+#svo-section .svo-bub-in {
+    border-top-left-radius: 3px;
+    background: rgba(255,255,255,.12);
+}
+
+#svo-section .svo-bub-out {
+    margin-left: auto;
+    border-top-right-radius: 3px;
+    background: #1f7a4a;
+}
+
+/* PAYMENT BAR */
+#svo-section .svo-pay {
+    margin-top: 15px;
+}
+
+#svo-section .svo-bar {
+    display: flex;
+    height: 37px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 11px;
+}
+
+#svo-section .svo-bar div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+#svo-section .svo-bar .a {
+    width: 70%;
+    background: linear-gradient(135deg, #f2c15a, #d89416);
+    color: #1b0507;
+}
+
+#svo-section .svo-bar .b {
+    width: 30%;
+    background: rgba(255,255,255,.10);
+    color: #fff;
+}
+
+#svo-section .svo-bar-note {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin-top: 7px;
+    color: rgba(255,255,255,.7);
+    font-size: 9px;
+}
+
+/* ORDER PHOTO */
 #svo-section .svo-photo {
-    position: relative; height: 150px; margin-top: 16px; border-radius: 16px; overflow: hidden;
-    display: flex; align-items: center; justify-content: center; font-size: 62px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 105px;
+    margin-top: 12px;
+    overflow: hidden;
+    border: 1px dashed rgba(242,193,90,.5);
+    border-radius: 13px;
     background: linear-gradient(135deg, #3a0d14, #151515);
-    border: 2px dashed rgba(242,193,90,.5);
+    font-size: 43px;
 }
+
 #svo-section .svo-photo span {
-    position: absolute; left: 8px; bottom: 8px; padding: 4px 10px; border-radius: 30px;
-    background: rgba(0,0,0,.6); color: #f2c15a; font-size: 10px; font-weight: 700;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    padding: 5px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.7);
+    color: var(--gold);
+    font-size: 9px;
+    font-weight: 700;
 }
 
-/* tracking line */
-#svo-section .svo-track { display: grid; gap: 0; margin-top: 16px; text-align: left; }
-#svo-section .svo-track div { display: flex; gap: 12px; align-items: center; padding: 7px 0; font-size: 12.5px; font-weight: 600; position: relative; }
-#svo-section .svo-track i { width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f2c15a; color: #1b0507; font-size: 12px; }
+/* TRACKING */
+#svo-section .svo-track {
+    display: grid;
+    margin-top: 12px;
+    text-align: left;
+}
 
-/* ---------- CONTROLS ---------- */
+#svo-section .svo-track div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 5px 0;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+#svo-section .svo-track i {
+    display: flex;
+    flex: 0 0 23px;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #1b0507;
+    font-size: 10px;
+}
+
+/* SLIDE CONTROLS */
 #svo-section .svo-controls {
-    position: absolute; left: 0; right: 0; bottom: 14px; z-index: 5;
-    display: flex; align-items: center; justify-content: center; gap: 14px;
+    position: absolute;
+    right: 0;
+    bottom: 12px;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
 }
+
 #svo-section .svo-arrow {
-    width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22);
-    color: #fff; font-size: 13px; transition: all .25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font-size: 11px;
+    cursor: pointer;
 }
-#svo-section .svo-arrow:hover { background: #f2c15a; color: #1b0507; border-color: #f2c15a; }
-#svo-section .svo-dots { display: flex; gap: 7px; align-items: center; }
-#svo-section .svo-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 20px; cursor: pointer; background: rgba(255,255,255,.35); transition: all .3s ease; }
-#svo-section .svo-dot.is-active { width: 24px; background: #f2c15a; }
 
-#svo-section .svo-progress { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; z-index: 6; background: linear-gradient(90deg, #f2c15a, #d89416); }
-#svo-section .svo-progress.run { animation: svoProg 7s linear forwards; }
-@keyframes svoProg { from { width: 0; } to { width: 100%; } }
+#svo-section .svo-arrow:hover {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: #1b0507;
+}
 
-/* ---------- BOTTOM TRUST STRIP ---------- */
-#svo-section .svo-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; }
+#svo-section .svo-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#svo-section .svo-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 20px;
+    background: rgba(255,255,255,.35);
+    cursor: pointer;
+}
+
+#svo-section .svo-dot.is-active {
+    width: 19px;
+    background: var(--gold);
+}
+
+#svo-section .svo-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 6;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f2c15a, #d89416);
+}
+
+#svo-section .svo-progress.run {
+    animation: svoProg 7s linear forwards;
+}
+
+@keyframes svoProg {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* TRUST ITEMS */
+#svo-section .svo-trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 17px;
+}
+
 #svo-section .svo-trust span {
-    display: inline-flex; align-items: center; gap: 9px; padding: 10px 17px; border-radius: 50px;
-    background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.12);
-    font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,.9);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 25px;
+    background: rgba(0,0,0,.22);
+    color: rgba(255,255,255,.86);
+    font-size: 10px;
+    font-weight: 600;
 }
-#svo-section .svo-trust i { color: #f2c15a; }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 960px) {
-    #svo-section .svo-grid { grid-template-columns: 1fr; }
-    #svo-section .svo-nav { flex-direction: row; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
-    #svo-section .svo-nav::-webkit-scrollbar { display: none; }
-    #svo-section .svo-nav button { width: auto; flex-shrink: 0; white-space: nowrap; }
-    #svo-section .svo-nav button.is-active { transform: none; }
+#svo-section .svo-trust i {
+    color: var(--gold);
 }
-@media (max-width: 760px) {
-    #svo-section .svo-in { grid-template-columns: 1fr; text-align: center; padding-bottom: 76px; }
-    #svo-section .svo-list li { text-align: left; }
-    #svo-section .svo-slide { min-height: 0; }
-    #svo-section .svo-btn { width: 100%; }
+
+/* TABLET */
+@media (max-width: 800px) {
+    #svo-section {
+        padding: 28px 12px;
+    }
+
+    #svo-section .svo-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    #svo-section .svo-nav {
+        flex-direction: row;
+        gap: 6px;
+        overflow-x: auto;
+        padding: 2px 1px 7px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #svo-section .svo-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    #svo-section .svo-nav button {
+        flex: 0 0 auto;
+        width: auto;
+        min-height: 36px;
+        padding: 5px 9px;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    #svo-section .svo-nav button b {
+        flex-basis: 23px;
+        width: 23px;
+        height: 23px;
+    }
+
+    #svo-section .svo-slide {
+        min-height: 0;
+    }
+
+    #svo-section .svo-in {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+        gap: 15px;
+        padding: 20px 16px 57px;
+    }
+
+    #svo-section .svo-card {
+        padding: 15px 11px;
+    }
 }
+
+/* MOBILE */
+@media (max-width: 520px) {
+    #svo-section {
+        padding: 23px 10px;
+    }
+
+    #svo-section .svo-head {
+        margin-bottom: 17px;
+    }
+
+    #svo-section .svo-badge {
+        margin-bottom: 9px;
+        font-size: 9px;
+    }
+
+    #svo-section .svo-title {
+        font-size: clamp(22px, 6.2vw, 29px);
+        line-height: 1.22;
+    }
+
+    #svo-section .svo-sub {
+        max-width: 370px;
+        font-size: 11px;
+        line-height: 1.65;
+    }
+
+    #svo-section .svo-grid {
+        gap: 8px;
+    }
+
+    #svo-section .svo-nav {
+        margin-right: -10px;
+        padding-right: 10px;
+    }
+
+    #svo-section .svo-show {
+        border-radius: 15px;
+    }
+
+    #svo-section .svo-in {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+        padding: 16px 14px 57px;
+    }
+
+    #svo-section .svo-step-tag {
+        margin-bottom: 8px;
+        font-size: 9px;
+    }
+
+    #svo-section .svo-h {
+        margin-bottom: 8px;
+        font-size: 21px;
+        line-height: 1.28;
+    }
+
+    #svo-section .svo-p {
+        margin-bottom: 10px;
+        font-size: 11.5px;
+        line-height: 1.7;
+    }
+
+    #svo-section .svo-list {
+        gap: 6px;
+        margin-bottom: 13px;
+    }
+
+    #svo-section .svo-list li {
+        font-size: 10.5px;
+    }
+
+    #svo-section .svo-btn {
+        width: 100%;
+        min-height: 39px;
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    #svo-section .svo-visual {
+        width: 100%;
+    }
+
+    #svo-section .svo-card {
+        max-width: 100%;
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    #svo-section .svo-bigicon {
+        width: 49px;
+        height: 49px;
+        margin-bottom: 9px;
+        border-radius: 15px;
+        font-size: 22px;
+    }
+
+    #svo-section .svo-card-title {
+        font-size: 12px;
+    }
+
+    #svo-section .svo-card-text {
+        font-size: 10px;
+    }
+
+    #svo-section .svo-chat {
+        grid-template-columns: 1fr;
+        max-width: 310px;
+        margin: 11px auto 0;
+    }
+
+    #svo-section .svo-bub {
+        font-size: 10px;
+    }
+
+    #svo-section .svo-pay {
+        max-width: 320px;
+        margin: 12px auto 0;
+    }
+
+    #svo-section .svo-photo {
+        max-width: 320px;
+        height: 90px;
+        margin: 10px auto 0;
+    }
+
+    #svo-section .svo-track {
+        max-width: 260px;
+        margin: 10px auto 0;
+    }
+
+    #svo-section .svo-trust {
+        gap: 6px;
+        margin-top: 12px;
+    }
+
+    #svo-section .svo-trust span {
+        padding: 7px 9px;
+        font-size: 9px;
+    }
+
+    #svo-section .svo-controls {
+        bottom: 10px;
+        gap: 10px;
+    }
+
+    #svo-section .svo-arrow {
+        width: 29px;
+        height: 29px;
+    }
+}
+
+/* SMALL PHONES */
+@media (max-width: 360px) {
+    #svo-section {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    #svo-section .svo-title {
+        font-size: 21px;
+    }
+
+    #svo-section .svo-in {
+        padding-right: 11px;
+        padding-left: 11px;
+    }
+
+    #svo-section .svo-h {
+        font-size: 19px;
+    }
+
+    #svo-section .svo-trust span {
+        font-size: 8.5px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
-    #svo-section .svo-slide { transition: none; }
-    #svo-section .svo-bigicon { animation: none; }
-    #svo-section .svo-progress { display: none; }
+    #svo-section *,
+    #svo-section *::before,
+    #svo-section *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
 }
 </style>
 
 <div class="svo-wrap">
 
-    <!-- HEADER -->
-    <div class="svo-head">
-        <div class="svo-badge"><i class="fas fa-route"></i> How It Works</div>
-        <h2 class="svo-title" id="svo-title">From Your Message <span>To Your Doorstep</span></h2>
+    <header class="svo-head">
+        <div class="svo-badge">
+            <i class="fas fa-route"></i> How It Works
+        </div>
+
+        <h2 class="svo-title" id="svo-title">
+            From Your Message <span>To Your Doorstep</span>
+        </h2>
+
         <p class="svo-sub">
-            Ordering from Sport Vora is simple and transparent. Follow the journey below,
-            from your first WhatsApp message to the moment your sports gear arrives,
-            with a photo of your order sent to you along the way.
+            Ordering from Sport Vora is simple and transparent. Follow your order
+            from your first WhatsApp message to delivery, with a photo of your
+            order sent to you before dispatch.
         </p>
-    </div>
+    </header>
 
     <div class="svo-grid">
 
-        <!-- STEP BUTTONS -->
         <div class="svo-nav" id="svo-nav" role="tablist" aria-label="Order steps">
-            <button type="button" role="tab"><b>1</b> Contact Us</button>
-            <button type="button" role="tab"><b>2</b> Get Your Quote</button>
-            <button type="button" role="tab"><b>3</b> Pay 70% Advance</button>
-            <button type="button" role="tab"><b>4</b> We Prepare Your Order</button>
-            <button type="button" role="tab"><b>5</b> Photo of Your Order</button>
-            <button type="button" role="tab"><b>6</b> Dispatch &amp; Tracking</button>
-            <button type="button" role="tab"><b>7</b> Receive &amp; Pay 30%</button>
+            <button type="button" role="tab" aria-selected="true"><b>1</b> Contact Us</button>
+            <button type="button" role="tab" aria-selected="false"><b>2</b> Get Your Quote</button>
+            <button type="button" role="tab" aria-selected="false"><b>3</b> Pay 70% Advance</button>
+            <button type="button" role="tab" aria-selected="false"><b>4</b> Prepare Order</button>
+            <button type="button" role="tab" aria-selected="false"><b>5</b> Order Photo</button>
+            <button type="button" role="tab" aria-selected="false"><b>6</b> Dispatch &amp; Tracking</button>
+            <button type="button" role="tab" aria-selected="false"><b>7</b> Receive Order</button>
         </div>
 
-        <!-- SLIDESHOW -->
-        <div class="svo-show" id="svo-show" aria-roledescription="carousel" aria-label="How to order from Sport Vora">
+        <div class="svo-show" id="svo-show"
+             aria-roledescription="carousel"
+             aria-label="How to order from Sport Vora">
 
             <div class="svo-stack" id="svo-stack">
 
-                <!-- 1 CONTACT -->
-                <div class="svo-slide is-active" role="group" aria-roledescription="slide" aria-label="Step 1 of 7">
+                <!-- STEP 1 -->
+                <article class="svo-slide is-active" role="group"
+                         aria-roledescription="slide" aria-label="Step 1 of 7">
                     <div class="svo-in">
                         <div>
                             <div class="svo-step-tag"><i class="fas fa-comments"></i> Step 1</div>
                             <h3 class="svo-h">Contact Us on WhatsApp or Email</h3>
                             <p class="svo-p">
                                 Message our manager <strong>Phatima</strong> and tell us what you need.
-                                It only takes a minute, and there is <em>no pressure to buy</em>.
+                                There is <em>no pressure to buy</em>.
                             </p>
                             <ul class="svo-list">
                                 <li><i class="fas fa-circle-check"></i> The sport and item you want</li>
                                 <li><i class="fas fa-circle-check"></i> Quantity, size and colour</li>
                                 <li><i class="fas fa-circle-check"></i> Your delivery country</li>
                             </ul>
-                            <a class="svo-btn" href="https://wa.me/923150885294?text=Hello%20Sport%20Vora%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Message Phatima</a>
+                            <a class="svo-btn"
+                               href="https://wa.me/923150885294?text=Hello%20Sport%20Vora%2C%20I%20would%20like%20to%20place%20an%20order."
+                               target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i> Message Phatima
+                            </a>
                         </div>
                         <div class="svo-visual">
                             <div class="svo-card">
@@ -2021,139 +2603,162 @@ go(0);
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- 2 QUOTE -->
-                <div class="svo-slide" role="group" aria-roledescription="slide" aria-label="Step 2 of 7">
+                <!-- STEP 2 -->
+                <article class="svo-slide" role="group"
+                         aria-roledescription="slide" aria-label="Step 2 of 7"
+                         aria-hidden="true">
                     <div class="svo-in">
                         <div>
                             <div class="svo-step-tag"><i class="fas fa-file-invoice-dollar"></i> Step 2</div>
                             <h3 class="svo-h">Receive a Clear Quote</h3>
                             <p class="svo-p">
-                                Phatima replies with everything in one place, so you know exactly
-                                what you are getting before you decide.
+                                Phatima shares your order details in writing, so you can review
+                                everything before making a decision.
                             </p>
                             <ul class="svo-list">
                                 <li><i class="fas fa-circle-check"></i> Item availability</li>
                                 <li><i class="fas fa-circle-check"></i> Total price in your currency</li>
                                 <li><i class="fas fa-circle-check"></i> Delivery options and estimated time</li>
                             </ul>
-                            <a class="svo-btn" href="https://wa.me/923150885294?text=Hello%20Sport%20Vora%2C%20please%20send%20me%20a%20quote." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Ask for a Quote</a>
+                            <a class="svo-btn"
+                               href="https://wa.me/923150885294?text=Hello%20Sport%20Vora%2C%20please%20send%20me%20a%20quote."
+                               target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i> Ask for a Quote
+                            </a>
                         </div>
                         <div class="svo-visual">
                             <div class="svo-card">
                                 <div class="svo-bigicon"><i class="fas fa-file-invoice-dollar"></i></div>
                                 <div class="svo-card-title">Your Quote</div>
-                                <div class="svo-card-text">Price, availability and delivery details, all confirmed in writing on WhatsApp.</div>
+                                <div class="svo-card-text">Price, availability and delivery details confirmed in writing.</div>
                                 <div class="svo-chat">
                                     <div class="svo-bub svo-bub-in">Your items are available. Here is your total and delivery time. ✅</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- 3 PAYMENT -->
-                <div class="svo-slide" role="group" aria-roledescription="slide" aria-label="Step 3 of 7">
+                <!-- STEP 3 -->
+                <article class="svo-slide" role="group"
+                         aria-roledescription="slide" aria-label="Step 3 of 7"
+                         aria-hidden="true">
                     <div class="svo-in">
                         <div>
                             <div class="svo-step-tag"><i class="fas fa-lock"></i> Step 3</div>
                             <h3 class="svo-h">Confirm with a 70% Advance Payment</h3>
                             <p class="svo-p">
-                                Happy with the quote? Confirm your order by paying a
-                                <em>70% advance</em>. This reserves your items and lets us start
-                                preparing them straight away.
-                                The remaining <strong>30%</strong> is paid only when your order
-                                <em>arrives at your doorstep</em>.
+                                Happy with the quote? Pay a <em>70% advance</em> to confirm
+                                your order and allow preparation to begin. The remaining
+                                <strong>30%</strong> is paid when your order arrives at your doorstep,
+                                according to your agreed terms.
                             </p>
                             <ul class="svo-list">
-                                <li><i class="fas fa-circle-check"></i> Payment details are shared by Phatima on WhatsApp</li>
-                                <li><i class="fas fa-circle-check"></i> Send your payment confirmation in the same chat</li>
-                                <li><i class="fas fa-circle-check"></i> Your order is then locked in</li>
+                                <li><i class="fas fa-circle-check"></i> Payment details shared by Phatima</li>
+                                <li><i class="fas fa-circle-check"></i> Send payment confirmation in the same chat</li>
+                                <li><i class="fas fa-circle-check"></i> Order confirmed for preparation</li>
                             </ul>
-                            <a class="svo-btn svo-btn-red" href="https://wa.me/923150885294?text=Hello%20Sport%20Vora%2C%20I%20am%20ready%20to%20confirm%20my%20order%20with%20the%2070%25%20advance." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Confirm My Order</a>
+                            <a class="svo-btn svo-btn-red"
+                               href="https://wa.me/923150885294?text=Hello%20Sport%20Vora%2C%20I%20am%20ready%20to%20confirm%20my%20order%20with%20the%2070%25%20advance."
+                               target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i> Confirm My Order
+                            </a>
                         </div>
                         <div class="svo-visual">
                             <div class="svo-card">
                                 <div class="svo-bigicon"><i class="fas fa-wallet"></i></div>
                                 <div class="svo-card-title">Payment Plan</div>
                                 <div class="svo-pay">
-                                    <div class="svo-bar"><div class="a">70%</div><div class="b">30%</div></div>
-                                    <div class="svo-bar-note"><span>Advance to confirm</span><span>Pay at your door</span></div>
+                                    <div class="svo-bar">
+                                        <div class="a">70%</div>
+                                        <div class="b">30%</div>
+                                    </div>
+                                    <div class="svo-bar-note">
+                                        <span>Advance to confirm</span>
+                                        <span>Pay at your door</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- 4 PREPARE -->
-                <div class="svo-slide" role="group" aria-roledescription="slide" aria-label="Step 4 of 7">
+                <!-- STEP 4 -->
+                <article class="svo-slide" role="group"
+                         aria-roledescription="slide" aria-label="Step 4 of 7"
+                         aria-hidden="true">
                     <div class="svo-in">
                         <div>
                             <div class="svo-step-tag"><i class="fas fa-box-open"></i> Step 4</div>
                             <h3 class="svo-h">We Process &amp; Prepare Your Order</h3>
                             <p class="svo-p">
-                                Once your advance is received, our team gets to work sourcing,
+                                After the advance is received, our team works on sourcing,
                                 checking and carefully packing your sports equipment.
                             </p>
                             <ul class="svo-list">
-                                <li><i class="fas fa-circle-check"></i> Items sourced and quality checked</li>
+                                <li><i class="fas fa-circle-check"></i> Items sourced and checked</li>
                                 <li><i class="fas fa-circle-check"></i> Sizes and quantities verified</li>
-                                <li><i class="fas fa-circle-check"></i> Securely packed for international delivery</li>
+                                <li><i class="fas fa-circle-check"></i> Packed for delivery</li>
                             </ul>
                         </div>
                         <div class="svo-visual">
                             <div class="svo-card">
-                                <div class="svo-bigicon"><i class="fas fa-boxes-packing"></i></div>
+                                <div class="svo-bigicon"><i class="fas fa-boxes-stacked"></i></div>
                                 <div class="svo-card-title">Packing in Progress</div>
-                                <div class="svo-card-text">Every item is checked against your order before it goes in the box.</div>
+                                <div class="svo-card-text">Each item is checked against your order before packing.</div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- 5 PHOTO -->
-                <div class="svo-slide" role="group" aria-roledescription="slide" aria-label="Step 5 of 7">
+                <!-- STEP 5 -->
+                <article class="svo-slide" role="group"
+                         aria-roledescription="slide" aria-label="Step 5 of 7"
+                         aria-hidden="true">
                     <div class="svo-in">
                         <div>
                             <div class="svo-step-tag"><i class="fas fa-camera"></i> Step 5</div>
                             <h3 class="svo-h">We Send You a Photo of Your Order</h3>
                             <p class="svo-p">
-                                Before anything leaves us, we take a <em>picture of your packed order</em>
-                                and send it to you on WhatsApp. You can see your items with your own eyes
-                                and confirm everything looks right.
+                                Before dispatch, we send a <em>photo of your actual order</em>
+                                through WhatsApp so you can review the items.
                             </p>
                             <ul class="svo-list">
-                                <li><i class="fas fa-circle-check"></i> Photo of your actual items</li>
-                                <li><i class="fas fa-circle-check"></i> Check the quantity, size and colour</li>
-                                <li><i class="fas fa-circle-check"></i> Approve it and we send your order out</li>
+                                <li><i class="fas fa-circle-check"></i> Photo of your items</li>
+                                <li><i class="fas fa-circle-check"></i> Check quantity, size and colour</li>
+                                <li><i class="fas fa-circle-check"></i> Review before dispatch</li>
                             </ul>
                         </div>
                         <div class="svo-visual">
                             <div class="svo-card">
                                 <div class="svo-bigicon"><i class="fas fa-camera"></i></div>
                                 <div class="svo-card-title">Your Order Photo</div>
-                                <div class="svo-photo">🏏 ⚽ 🥊<span><i class="fas fa-circle-check"></i> Sent to your WhatsApp</span></div>
+                                <div class="svo-photo">🏏 ⚽ 🥊
+                                    <span><i class="fas fa-circle-check"></i> Sent to your WhatsApp</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- 6 DISPATCH -->
-                <div class="svo-slide" role="group" aria-roledescription="slide" aria-label="Step 6 of 7">
+                <!-- STEP 6 -->
+                <article class="svo-slide" role="group"
+                         aria-roledescription="slide" aria-label="Step 6 of 7"
+                         aria-hidden="true">
                     <div class="svo-in">
                         <div>
                             <div class="svo-step-tag"><i class="fas fa-truck-fast"></i> Step 6</div>
                             <h3 class="svo-h">Dispatch &amp; Delivery Updates</h3>
                             <p class="svo-p">
-                                After you approve the photo, your order
-                                is handed to the delivery carrier and sent to your country.
-                                We share the shipping details with you so you can follow it.
+                                After the order is approved and dispatched, we share the
+                                available shipping details so you can follow its progress.
                             </p>
                             <ul class="svo-list">
                                 <li><i class="fas fa-circle-check"></i> Order handed to the carrier</li>
-                                <li><i class="fas fa-circle-check"></i> Shipping details sent to you</li>
-                                <li><i class="fas fa-circle-check"></i> Ask Phatima for an update any time</li>
+                                <li><i class="fas fa-circle-check"></i> Shipping details shared</li>
+                                <li><i class="fas fa-circle-check"></i> Contact Phatima for updates</li>
                             </ul>
                         </div>
                         <div class="svo-visual">
@@ -2169,39 +2774,49 @@ go(0);
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- 7 RECEIVE -->
-                <div class="svo-slide" role="group" aria-roledescription="slide" aria-label="Step 7 of 7">
+                <!-- STEP 7 -->
+                <article class="svo-slide" role="group"
+                         aria-roledescription="slide" aria-label="Step 7 of 7"
+                         aria-hidden="true">
                     <div class="svo-in">
                         <div>
                             <div class="svo-step-tag"><i class="fas fa-house-circle-check"></i> Step 7</div>
                             <h3 class="svo-h">Your Sports Gear Arrives!</h3>
                             <p class="svo-p">
-                                Your order arrives at your door in the UK, Europe, USA, Canada,
-                                Mexico or South America. Check your items, then pay the
-                                <em>remaining 30%</em> on receiving them. Enjoy your gear and
-                                <em>tell us how it went</em>. We are always happy to help with your next order.
+                                Receive your order at your delivery address, check your items,
+                                and pay the <em>remaining 30%</em> under the agreed payment terms.
+                                We are happy to help with your next order.
                             </p>
-                            <a class="svo-btn" href="https://wa.me/923150885294?text=Hello%20Sport%20Vora%2C%20I%20would%20like%20to%20start%20my%20order." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Start My Order Now</a>
+                            <a class="svo-btn"
+                               href="https://wa.me/923150885294?text=Hello%20Sport%20Vora%2C%20I%20would%20like%20to%20start%20my%20order."
+                               target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i> Start My Order
+                            </a>
                         </div>
                         <div class="svo-visual">
                             <div class="svo-card">
                                 <div class="svo-bigicon"><i class="fas fa-trophy"></i></div>
                                 <div class="svo-card-title">Delivered. Game On!</div>
-                                <div class="svo-card-text">Pay the remaining 30% at your doorstep when your order arrives.</div>
+                                <div class="svo-card-text">Enjoy your sports gear and contact us whenever you need help.</div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
             </div>
 
             <div class="svo-controls">
-                <button type="button" class="svo-arrow" id="svo-prev" aria-label="Previous step"><i class="fas fa-chevron-left"></i></button>
-                <div class="svo-dots" id="svo-dots"></div>
-                <button type="button" class="svo-arrow" id="svo-next" aria-label="Next step"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" class="svo-arrow" id="svo-prev" aria-label="Previous step">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="svo-dots" id="svo-dots" aria-label="Choose a step"></div>
+                <button type="button" class="svo-arrow" id="svo-next" aria-label="Next step">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
+
             <div class="svo-progress" id="svo-progress"></div>
         </div>
     </div>
@@ -2217,35 +2832,47 @@ go(0);
 
 <script>
 (function () {
-    var show = document.getElementById("svo-show");
-    var stack = document.getElementById("svo-stack");
-    var nav = document.getElementById("svo-nav");
-    var dotsEl = document.getElementById("svo-dots");
-    var prev = document.getElementById("svo-prev");
-    var next = document.getElementById("svo-next");
-    var progress = document.getElementById("svo-progress");
-    if (!show || !stack) return;
+    var section = document.getElementById("svo-section");
+    if (!section || section.dataset.svoReady === "true") return;
+    section.dataset.svoReady = "true";
+
+    var show = section.querySelector("#svo-show");
+    var stack = section.querySelector("#svo-stack");
+    var nav = section.querySelector("#svo-nav");
+    var dotsEl = section.querySelector("#svo-dots");
+    var prev = section.querySelector("#svo-prev");
+    var next = section.querySelector("#svo-next");
+    var progress = section.querySelector("#svo-progress");
+
+    if (!show || !stack || !nav || !dotsEl || !prev || !next) return;
 
     var slides = Array.prototype.slice.call(stack.children);
     var tabs = Array.prototype.slice.call(nav.querySelectorAll("button"));
-    var total = slides.length, index = 0, timer = null, delay = 7000;
-    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var total = slides.length;
+    var index = 0;
+    var timer = null;
+    var delay = 7000;
+    var visible = true;
+    var paused = false;
+    var reduceMotion = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     var dots = slides.map(function (_, n) {
-        var d = document.createElement("button");
-        d.type = "button"; d.className = "svo-dot";
-        d.setAttribute("aria-label", "Go to step " + (n + 1));
-        d.addEventListener("click", function () { go(n); restart(); });
-        dotsEl.appendChild(d);
-        return d;
-    });
-
-    tabs.forEach(function (t, n) {
-        t.addEventListener("click", function () { go(n); restart(); });
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "svo-dot";
+        dot.setAttribute("aria-label", "Go to step " + (n + 1));
+        dot.addEventListener("click", function () {
+            go(n);
+            restart();
+        });
+        dotsEl.appendChild(dot);
+        return dot;
     });
 
     function runProgress() {
-        if (reduce || !progress) return;
+        if (!progress || reduceMotion) return;
+
         progress.classList.remove("run");
         void progress.offsetWidth;
         progress.classList.add("run");
@@ -2253,54 +2880,137 @@ go(0);
 
     function go(n) {
         index = (n + total) % total;
-        slides.forEach(function (s, k) {
-            s.classList.toggle("is-active", k === index);
-            s.setAttribute("aria-hidden", k === index ? "false" : "true");
+
+        slides.forEach(function (slide, k) {
+            var active = k === index;
+            slide.classList.toggle("is-active", active);
+            slide.setAttribute("aria-hidden", active ? "false" : "true");
         });
-        tabs.forEach(function (t, k) {
-            t.classList.toggle("is-active", k === index);
-            t.setAttribute("aria-selected", k === index ? "true" : "false");
+
+        tabs.forEach(function (tab, k) {
+            var active = k === index;
+            tab.classList.toggle("is-active", active);
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+            tab.setAttribute("tabindex", active ? "0" : "-1");
         });
-        dots.forEach(function (d, k) { d.classList.toggle("is-active", k === index); });
-        var active = tabs[index];
-        if (active && nav.scrollWidth > nav.clientWidth) {
-            nav.scrollTo({ left: active.offsetLeft - 20, behavior: "smooth" });
+
+        dots.forEach(function (dot, k) {
+            dot.classList.toggle("is-active", k === index);
+            dot.setAttribute("aria-current", k === index ? "step" : "false");
+        });
+
+        var activeTab = tabs[index];
+
+        if (activeTab && nav.scrollWidth > nav.clientWidth) {
+            nav.scrollTo({
+                left: Math.max(0, activeTab.offsetLeft - nav.offsetLeft - 12),
+                behavior: reduceMotion ? "auto" : "smooth"
+            });
         }
+
         if (timer) runProgress();
     }
 
-    function start() { if (reduce || timer) return; timer = setInterval(function () { go(index + 1); }, delay); runProgress(); }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } if (progress) progress.classList.remove("run"); }
-    function restart() { stop(); start(); }
+    function start() {
+        if (reduceMotion || timer || paused || !visible) return;
 
-    prev.addEventListener("click", function () { go(index - 1); restart(); });
-    next.addEventListener("click", function () { go(index + 1); restart(); });
+        timer = setInterval(function () {
+            go(index + 1);
+        }, delay);
 
-    show.addEventListener("mouseenter", stop);
-    show.addEventListener("mouseleave", start);
-    show.addEventListener("focusin", stop);
-    show.addEventListener("focusout", start);
+        runProgress();
+    }
+
+    function stop() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+
+        if (progress) progress.classList.remove("run");
+    }
+
+    function restart() {
+        stop();
+        start();
+    }
+
+    prev.addEventListener("click", function () {
+        go(index - 1);
+        restart();
+    });
+
+    next.addEventListener("click", function () {
+        go(index + 1);
+        restart();
+    });
+
+    tabs.forEach(function (tab, n) {
+        tab.addEventListener("click", function () {
+            go(n);
+            restart();
+        });
+    });
+
+    show.addEventListener("mouseenter", function () {
+        paused = true;
+        stop();
+    });
+
+    show.addEventListener("mouseleave", function () {
+        paused = false;
+        start();
+    });
+
+    show.addEventListener("focusin", function () {
+        paused = true;
+        stop();
+    });
+
+    show.addEventListener("focusout", function (event) {
+        if (!show.contains(event.relatedTarget)) {
+            paused = false;
+            start();
+        }
+    });
 
     var startX = null;
-    show.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
-    show.addEventListener("touchend", function (e) {
-        if (startX === null) return;
-        var dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
-        startX = null; start();
+
+    show.addEventListener("touchstart", function (event) {
+        if (!event.touches.length) return;
+        startX = event.touches[0].clientX;
+        stop();
+    }, { passive: true });
+
+    show.addEventListener("touchend", function (event) {
+        if (startX === null || !event.changedTouches.length) return;
+
+        var deltaX = event.changedTouches[0].clientX - startX;
+
+        if (Math.abs(deltaX) > 45) {
+            go(index + (deltaX < 0 ? 1 : -1));
+        }
+
+        startX = null;
+        start();
     }, { passive: true });
 
     if ("IntersectionObserver" in window) {
-        new IntersectionObserver(function (entries) {
-            entries[0].isIntersecting ? start() : stop();
-        }, { threshold: 0.3 }).observe(show);
-    } else { start(); }
+        var observer = new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+
+            if (visible) start();
+            else stop();
+        }, { threshold: 0.15 });
+
+        observer.observe(show);
+    } else {
+        start();
+    }
 
     go(0);
 })();
 </script>
-
-</section>
 </section>
 
 <!-- =========================================================
