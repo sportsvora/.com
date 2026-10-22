@@ -298,12 +298,28 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border" style="color: #c61010; width: 3rem; height: 3rem;" role="status"></div>
-        <span class="sr-only">Loading...</span>
+  <!-- Spinner Start -->
+<div id="spinner"
+     class="show d-flex align-items-center justify-content-center"
+     style="
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        z-index: 999999;
+     ">
+    <div class="spinner-border"
+         style="color: #c61010; width: 3rem; height: 3rem;"
+         role="status"
+         aria-label="Loading">
     </div>
-    <!-- Spinner End -->
+    <span class="sr-only">Loading...</span>
+</div>
+<!-- Spinner End -->
 
 
 
@@ -10048,4 +10064,3 @@ body.cnc-menu-open {
 
 </body>
 </html>
-
