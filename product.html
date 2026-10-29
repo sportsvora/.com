@@ -3209,7 +3209,7 @@ body.cnc-menu-open {
     counter.dataset.initialized = "true";
 
     // Simulated display only — not actual website traffic.
-    let viewers = Math.floor(Math.random() * 121) + 30;
+    let viewers = Math.floor(Math.random() * 71) + 30;
     counter.textContent = viewers;
 
     function updateCount() {
@@ -3218,7 +3218,7 @@ body.cnc-menu-open {
         // Pick a random value between 30 and 150.
         // Avoid tiny repetitive changes and repeated numbers.
         do {
-            next = Math.floor(Math.random() * 121) + 30;
+            next = Math.floor(Math.random() * 71) + 30;
         } while (next === viewers);
 
         viewers = next;
