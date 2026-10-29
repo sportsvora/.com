@@ -3913,6 +3913,171 @@ document.addEventListener(
 );
 
 </script>
+    <section id="live-visitors" aria-label="Visitor activity demo">
+  <svg class="visitor-eye" viewBox="0 0 64 40" aria-hidden="true">
+    <path
+      d="M3 20S13 4 32 4s29 16 29 16-10 16-29 16S3 20 3 20Z"
+      fill="#171717"
+      stroke="#e53935"
+      stroke-width="3"
+      stroke-linejoin="round"
+    />
+    <circle cx="32" cy="20" r="11" fill="#c61010"/>
+    <circle cx="32" cy="20" r="6" fill="#080808"/>
+    <circle cx="35" cy="17" r="2" fill="#fff" opacity=".9"/>
+  </svg>
+
+  <div class="visitor-info">
+    <span class="visitor-label">VISITOR ACTIVITY</span>
+    <strong id="visitor-count" aria-live="polite">—</strong>
+    <span class="visitor-note">Simulated live activity</span>
+  </div>
+
+  <span class="visitor-status" aria-hidden="true"></span>
+</section>
+
+<style>
+  #live-visitors {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 11px 15px;
+    background: linear-gradient(135deg, #111, #1b1011);
+    color: #fff;
+    border: 1px solid #512025;
+    border-radius: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .16);
+  }
+
+  #live-visitors .visitor-eye {
+    display: block;
+    width: 40px;
+    height: 28px;
+    flex: 0 0 auto;
+  }
+
+  #live-visitors .visitor-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 2px;
+  }
+
+  #live-visitors .visitor-label {
+    font-size: 10px;
+    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #d7b7b9;
+  }
+
+  #live-visitors #visitor-count {
+    font-size: clamp(21px, 4vw, 27px);
+    line-height: 1.1;
+    font-weight: 800;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #live-visitors .visitor-note {
+    font-size: 10px;
+    color: #b9b9b9;
+  }
+
+  #live-visitors .visitor-status {
+    width: 8px;
+    height: 8px;
+    margin-left: 2px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #e53935;
+    box-shadow: 0 0 9px rgba(229, 57, 53, .8);
+    animation: visitor-pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes visitor-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .45; }
+  }
+
+  @media (max-width: 480px) {
+    #live-visitors {
+      gap: 9px;
+      padding: 9px 11px;
+      border-radius: 10px;
+    }
+
+    #live-visitors .visitor-eye {
+      width: 33px;
+      height: 23px;
+    }
+
+    #live-visitors .visitor-label {
+      font-size: 9px;
+      letter-spacing: .9px;
+    }
+
+    #live-visitors .visitor-note {
+      font-size: 9px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #live-visitors .visitor-status {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+(() => {
+  const min = 50;
+  const max = 250;
+  const storageKey = "visitorActivityDemo";
+  const countEl = document.getElementById("visitor-count");
+
+  if (!countEl) return;
+
+  function randomCount() {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  let count = randomCount();
+
+  try {
+    const saved = Number(sessionStorage.getItem(storageKey));
+
+    if (Number.isInteger(saved) && saved >= min && saved <= max) {
+      count = saved;
+    }
+
+    sessionStorage.setItem(storageKey, String(count));
+  } catch (error) {
+    // Continue with a temporary demo count if storage is unavailable.
+  }
+
+  countEl.textContent = count.toLocaleString();
+
+  window.setInterval(() => {
+    const direction = Math.random() < 0.5 ? -1 : 1;
+    const step = Math.floor(Math.random() * 3) + 1;
+
+    count = Math.max(min, Math.min(max, count + direction * step));
+
+    countEl.textContent = count.toLocaleString();
+
+    try {
+      sessionStorage.setItem(storageKey, String(count));
+    } catch (error) {
+      // The counter continues working for the current page.
+    }
+  }, 6000);
+})();
+</script>
+    <br>
 <!-- SPORT VORA PRODUCT CATALOGUE: all listed football, volleyball, baseball, handball, rugby, basketball, boxing and wrestling products -->
 <div class="cnc-category-nav" id="cncCategoryNav">
 <button class="active" onclick="cncShowCategory('all', this)">All Sports</button>
