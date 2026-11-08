@@ -7288,7 +7288,54 @@ return lines.join("\n");
     margin-bottom:12px;
 }
 
+/* SPORT VORA — FULL-WIDTH PRODUCT IMAGES */
 
+/* Let the image occupy the full card width */
+#cncMenuGrid .cnc-card-top {
+    display: block !important;
+    position: relative;
+    margin: -16px -16px 15px !important;
+}
+
+/* Make image fill its complete box */
+#cncMenuGrid .sv-product-image {
+    display: block !important;
+    width: 100% !important;
+    height: 240px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 15px 15px 0 0 !important;
+    overflow: hidden;
+}
+
+/* Fill the image area completely */
+#cncMenuGrid .sv-product-image img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    object-fit: cover !important;
+    object-position: center;
+}
+
+/* Keep product number visible */
+#cncMenuGrid .cnc-card-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+}
+
+/* Mobile adjustments */
+@media(max-width:560px) {
+    #cncMenuGrid .cnc-card-top {
+        margin: -12px -12px 12px !important;
+    }
+
+    #cncMenuGrid .sv-product-image {
+        height: 190px !important;
+    }
+}
 /* SELECT */
 
 .cnc-size-title{
