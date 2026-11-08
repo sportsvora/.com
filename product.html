@@ -7644,16 +7644,30 @@ return lines.join("\n");
 
 }
 
+/* =========================================================
+   MOBILE — TWO PRODUCT COLUMNS
+========================================================= */
+
 @media(max-width:560px){
 
     .cnc-menu-grid{
-        grid-template-columns:1fr;
+        display:grid !important;
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:12px !important;
+        width:100%;
+    }
+
+    .cnc-menu-card{
+        grid-column:span 1 !important;
+        min-width:0;
+        min-height:200px;
     }
 
     .cnc-wide-card{
-        grid-column:span 1;
+        grid-column:span 2 !important;
     }
 
+}
     .cnc-menu-card{
         min-height:220px;
     }
