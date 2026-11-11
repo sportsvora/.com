@@ -479,7 +479,104 @@
 </head>
 <body>
 
+<!-- Place this immediately after your <body> tag -->
+<div id="sports-loader">
+  <div class="loader-box">
+    <div class="spinner-ring"></div>
+    <div class="ball-icon">⚽</div>
+    <div class="loader-text">LOADING...</div>
+  </div>
+</div>
 
+<style>
+  /* Fullscreen dark overlay */
+  #sports-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b0b0b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .loader-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Smooth Rotating Sports Gold Ring Spinner */
+  .spinner-ring {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top: 6px solid #ffcc00;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+  }
+
+  /* Bouncing Sports Ball in the Center */
+  .ball-icon {
+    font-size: 32px;
+    z-index: 2;
+    animation: bounceBall 0.6s ease-in-out infinite alternate;
+  }
+
+  /* Sports Loading Text */
+  .loader-text {
+    position: absolute;
+    bottom: -35px;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+  }
+
+  /* Animations */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes bounceBall {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-8px) scale(1.1); }
+  }
+
+  /* Hide Class */
+  .loader-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  // Stays visible for 500ms (half a second) then fades out smoothly
+  setTimeout(function() {
+    var loader = document.getElementById('sports-loader');
+    if (loader) {
+      loader.classList.add('loader-hidden');
+    }
+  }, 500);
+</script>
 
 
 <!-- FONT AWESOME -->
