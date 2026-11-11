@@ -4035,6 +4035,124 @@ body.cnc-menu-open {
 })();
 </script>
 
+<style>
+  .premium-video-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .premium-video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #080808;
+    box-shadow: 0 20px 65px rgba(0,0,0,.18);
+  }
+
+  .premium-video-frame video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: 0;
+  }
+
+  @media (max-width: 600px) {
+    .premium-video-section {
+      padding: 12px;
+    }
+
+    .premium-video-frame {
+      border-radius: 12px;
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>
+
+<section class="premium-video-section" id="premiumVideoSection">
+  <div class="premium-video-frame">
+    <video
+      id="premiumAutoVideo"
+      playsinline
+      webkit-playsinline
+      preload="metadata"
+      loop
+    >
+      <source src="avid.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<script>
+(() => {
+  const section = document.getElementById('premiumVideoSection');
+  const video = document.getElementById('premiumAutoVideo');
+
+  if (!section || !video) return;
+
+  let isVisible = false;
+
+  const playVideo = async () => {
+    if (!isVisible) return;
+
+    // Attempt sound playback first.
+    video.muted = false;
+    video.volume = 1;
+
+    try {
+      await video.play();
+    } catch (error) {
+      // Browsers may block autoplay with sound.
+      // Fall back to muted autoplay.
+      if (isVisible) {
+        video.muted = true;
+        video.play().catch(() => {});
+      }
+    }
+  };
+
+  const stopVideo = () => {
+    isVisible = false;
+    video.pause();
+    video.muted = true;
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        isVisible = true;
+        playVideo();
+      } else {
+        stopVideo();
+      }
+    });
+  }, {
+    threshold: [0, 0.5]
+  });
+
+  observer.observe(section);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopVideo();
+    } else if (
+      section.getBoundingClientRect().top < window.innerHeight &&
+      section.getBoundingClientRect().bottom > 0
+    ) {
+      isVisible = true;
+      playVideo();
+    }
+  });
+})();
+</script>
+
 
 <section id="sv-reveal-story">
 
