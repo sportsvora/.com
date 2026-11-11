@@ -5546,6 +5546,766 @@ body.cnc-menu-open {
 
 <br>
 <br>
+    
+<section id="sportVoraVideos">
+
+<style>
+#sportVoraVideos,
+#sportVoraVideos * {
+  box-sizing:border-box;
+}
+
+#sportVoraVideos {
+  width:100%;
+  padding:85px 5%;
+  background:
+    radial-gradient(ellipse at 5% 15%,rgba(255,35,60,.11),transparent 42%),
+    linear-gradient(135deg,#100e11,#19181e 55%,#0b0c10);
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  overflow:hidden;
+}
+
+#sportVoraVideos .sv-container {
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:65px;
+}
+
+/* =================================
+   PREMIUM LEFT TEXT DESIGN
+================================= */
+
+#sportVoraVideos .sv-content {
+  min-width:0;
+  max-width:570px;
+  position:relative;
+  padding:12px 0 12px 26px;
+  border-left:2px solid rgba(255,38,63,.72);
+}
+
+#sportVoraVideos .sv-label {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 14px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:5px;
+  background:linear-gradient(
+    110deg,
+    rgba(255,38,63,.13),
+    rgba(255,255,255,.035)
+  );
+  color:#ff7180;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2.8px;
+  margin-bottom:28px;
+  text-transform:uppercase;
+}
+
+#sportVoraVideos .sv-label:before {
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#ff263f;
+  box-shadow:0 0 12px #ff263f;
+  flex-shrink:0;
+}
+
+/* PREMIUM HEADLINE */
+
+#sportVoraVideos .sv-heading {
+  font-size:clamp(43px,5.1vw,68px);
+  line-height:.99;
+  letter-spacing:-3.8px;
+  font-weight:900;
+  margin:0 0 12px;
+  text-transform:uppercase;
+  color:#fff;
+  text-shadow:0 8px 30px rgba(0,0,0,.22);
+}
+
+#sportVoraVideos .sv-heading span {
+  background:linear-gradient(
+    105deg,
+    #ff263f 8%,
+    #ff8792 92%
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  display:inline-block;
+}
+
+/* DESCRIPTION */
+
+#sportVoraVideos .sv-description {
+  font-size:15px;
+  line-height:1.85;
+  color:#c6c3cc;
+  max-width:455px;
+  margin:0 0 30px;
+  font-weight:400;
+  letter-spacing:.12px;
+}
+
+/* PREMIUM FEATURE LIST */
+
+#sportVoraVideos .sv-features {
+  display:grid;
+  gap:0;
+  max-width:465px;
+  margin-bottom:32px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+#sportVoraVideos .sv-feature {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:55px;
+  padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  color:#f5f4f6;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.15px;
+}
+
+#sportVoraVideos .sv-check {
+  width:27px;
+  height:27px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border:1px solid rgba(255,38,63,.48);
+  background:rgba(255,38,63,.10);
+  color:#ff5368;
+  border-radius:50%;
+  font-size:13px;
+  flex-shrink:0;
+}
+
+/* CTA */
+
+#sportVoraVideos .sv-cta {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  padding:17px 23px;
+  background:linear-gradient(110deg,#ff263f,#e81732);
+  color:white;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.35px;
+  border-radius:5px;
+  box-shadow:0 10px 28px rgba(255,38,63,.22);
+  transition:.3s;
+}
+
+#sportVoraVideos .sv-cta:hover {
+  transform:translateY(-4px);
+  box-shadow:0 13px 30px rgba(255,38,63,.35);
+}
+
+/* =================================
+   RIGHT VIDEO PANEL - UNCHANGED
+================================= */
+
+#sportVoraVideos .sv-video-area {
+  min-width:0;
+  padding:25px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:22px;
+  background:linear-gradient(145deg,#252328,#141419);
+  box-shadow:0 25px 65px rgba(0,0,0,.35);
+}
+
+#sportVoraVideos .sv-video-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+#sportVoraVideos .sv-video-title {
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  color:#f5f5f5;
+}
+
+#sportVoraVideos .sv-video-title span {
+  color:#ff263f;
+}
+
+#sportVoraVideos .sv-counter {
+  color:#ff4055;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+
+#sportVoraVideos .sv-player-wrap {
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+#sportVoraVideos .sv-player {
+  width:min(100%,300px);
+  aspect-ratio:9/16;
+  max-height:530px;
+  background:#080808;
+  border-radius:17px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 15px 45px rgba(0,0,0,.4);
+}
+
+#sportVoraVideos .sv-player video {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  background:#080808;
+}
+
+#sportVoraVideos .sv-video-bottom {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:20px;
+}
+
+#sportVoraVideos .sv-play-label {
+  color:#b8b8c2;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.6px;
+}
+
+#sportVoraVideos .sv-nav {
+  display:flex;
+  gap:9px;
+}
+
+#sportVoraVideos .sv-arrow {
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:#292930;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+#sportVoraVideos .sv-arrow:hover {
+  background:#ff263f;
+  border-color:#ff263f;
+  transform:scale(1.06);
+}
+
+#sportVoraVideos .sv-dots {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:21px;
+}
+
+#sportVoraVideos .sv-dot {
+  width:30px;
+  height:30px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.15);
+  background:#292930;
+  color:#bbb;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s;
+}
+
+#sportVoraVideos .sv-dot.active {
+  background:#ff263f;
+  color:#fff;
+  border-color:#ff263f;
+  box-shadow:0 0 15px rgba(255,38,63,.3);
+}
+
+#sportVoraVideos .sv-dot:hover {
+  border-color:#ff263f;
+  color:#fff;
+}
+
+#sportVoraVideos .sv-progress {
+  height:3px;
+  background:#383840;
+  border-radius:5px;
+  margin-top:19px;
+  overflow:hidden;
+}
+
+#sportVoraVideos .sv-progress-fill {
+  height:100%;
+  width:10%;
+  background:#ff263f;
+  transition:width .3s;
+}
+
+#sportVoraVideos .sv-bottom-caption {
+  color:#888893;
+  text-align:center;
+  font-size:10px;
+  letter-spacing:1px;
+  font-weight:700;
+  margin-top:13px;
+}
+
+/* =================================
+   TABLET RESPONSIVENESS
+================================= */
+
+@media(max-width:950px) {
+
+  #sportVoraVideos {
+    padding:65px 4%;
+  }
+
+  #sportVoraVideos .sv-container {
+    gap:30px;
+  }
+
+  #sportVoraVideos .sv-content {
+    padding-left:20px;
+  }
+#sportVoraVideos .sv-heading {
+  font-size: clamp(28px, 3.5vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+}
+
+  #sportVoraVideos .sv-description {
+    font-size:13px;
+    line-height:1.8;
+  }
+
+  #sportVoraVideos .sv-feature {
+    min-height:50px;
+  }
+
+  #sportVoraVideos .sv-video-area {
+    padding:17px;
+  }
+
+  #sportVoraVideos .sv-player {
+    width:min(100%,265px);
+    max-height:465px;
+  }
+}
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media(max-width:650px) {
+
+  #sportVoraVideos {
+    padding:43px 15px;
+  }
+
+  #sportVoraVideos .sv-container {
+    grid-template-columns:1fr;
+    gap:30px;
+    width:100%;
+  }
+
+  #sportVoraVideos .sv-content {
+    text-align:center;
+    max-width:100%;
+    padding:0;
+    border-left:0;
+  }
+
+  #sportVoraVideos .sv-label {
+    font-size:9px;
+    letter-spacing:1.6px;
+    padding:9px 13px;
+    margin-bottom:22px;
+    justify-content:center;
+    letter-spacing:1.8px;
+  }
+
+  #sportVoraVideos .sv-heading {
+    font-size:clamp(22px,9.1vw,22px);
+    line-height:1.02;
+    letter-spacing:-2px;
+    margin-bottom:18px;
+  }
+
+  #sportVoraVideos .sv-description {
+    font-size:13px;
+    line-height:1.8;
+    max-width:410px;
+    margin:0 auto 24px;
+    padding:0 5px;
+  }
+
+  #sportVoraVideos .sv-features {
+    display:grid;
+    width:100%;
+    max-width:390px;
+    margin:0 auto 26px;
+    gap:0;
+    text-align:left;
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+
+  #sportVoraVideos .sv-feature {
+    font-size:12px;
+    gap:11px;
+    min-height:48px;
+    padding:8px 2px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+
+  #sportVoraVideos .sv-check {
+    width:25px;
+    height:25px;
+    font-size:12px;
+    border-radius:50%;
+  }
+
+  #sportVoraVideos .sv-cta {
+    width:100%;
+    max-width:330px;
+    padding:15px 13px;
+    font-size:10px;
+    gap:12px;
+  }
+
+  #sportVoraVideos .sv-video-area {
+    width:100%;
+    padding:14px;
+    border-radius:17px;
+  }
+
+  #sportVoraVideos .sv-video-top {
+    margin-bottom:15px;
+  }
+
+  #sportVoraVideos .sv-video-title {
+    font-size:10px;
+    letter-spacing:1px;
+  }
+
+  #sportVoraVideos .sv-counter {
+    font-size:11px;
+  }
+
+  #sportVoraVideos .sv-player {
+    width:min(100%,255px);
+    max-height:450px;
+    border-radius:13px;
+  }
+
+  #sportVoraVideos .sv-video-bottom {
+    margin-top:15px;
+  }
+
+  #sportVoraVideos .sv-play-label {
+    font-size:9px;
+  }
+
+  #sportVoraVideos .sv-arrow {
+    width:36px;
+    height:36px;
+    font-size:19px;
+  }
+
+  #sportVoraVideos .sv-dots {
+    gap:6px;
+    margin-top:17px;
+  }
+
+  #sportVoraVideos .sv-dot {
+    width:27px;
+    height:27px;
+    font-size:9px;
+    border-radius:7px;
+  }
+
+  #sportVoraVideos .sv-bottom-caption {
+    font-size:8px;
+    letter-spacing:.6px;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media(max-width:370px) {
+
+  #sportVoraVideos {
+    padding:35px 11px;
+  }
+
+  #sportVoraVideos .sv-heading {
+    font-size:clamp(31px,9vw,34px);
+    letter-spacing:-1.7px;
+  }
+
+  #sportVoraVideos .sv-description {
+    font-size:12px;
+  }
+
+  #sportVoraVideos .sv-video-area {
+    padding:10px;
+  }
+
+  #sportVoraVideos .sv-player {
+    width:min(100%,235px);
+  }
+
+  #sportVoraVideos .sv-dot {
+    width:25px;
+    height:25px;
+  }
+}
+
+</style>
+
+<div class="sv-container">
+
+  <!-- LEFT PREMIUM TEXT SECTION -->
+
+  <div class="sv-content">
+
+    <div class="sv-label">
+      SPORT VORA • BEYOND THE GAME
+    </div>
+
+    <h2 class="sv-heading">
+      BUILT FOR<br>
+      <span>THE PASSION.</span><br>
+      MADE TO <span>WIN.</span>
+    </h2>
+
+    <p class="sv-description">
+      Every athlete has a story. Every champion has a journey.
+      Discover the gear, energy and inspiration that push
+      sporting performance beyond limits. This is where
+      passion meets performance.
+    </p>
+
+    <div class="sv-features">
+
+      <div class="sv-feature">
+        <span class="sv-check">✓</span>
+        Premium Sports Equipment
+      </div>
+
+      <div class="sv-feature">
+        <span class="sv-check">✓</span>
+        Built for Athletes & Champions
+      </div>
+
+      <div class="sv-feature">
+        <span class="sv-check">✓</span>
+        Explore All 10 Videos
+      </div>
+
+    </div>
+
+    <a href="#products" class="sv-cta">
+      EXPLORE SPORTS PRODUCTS
+      <span style="font-size:19px;">↗</span>
+    </a>
+
+  </div>
+
+  <!-- RIGHT VIDEO SHOWCASE - ORIGINAL STRUCTURE -->
+
+  <div class="sv-video-area">
+
+    <div class="sv-video-top">
+
+      <div class="sv-video-title">
+        <span>▶</span> SPORTS IN MOTION
+      </div>
+
+      <div class="sv-counter" id="svCounter">
+        01 / 10
+      </div>
+
+    </div>
+
+    <div class="sv-player-wrap">
+
+      <div class="sv-player">
+
+        <video
+          id="svMainVideo"
+          controls
+          playsinline
+          preload="metadata"
+        >
+          <source src="videos/video1.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+
+      </div>
+
+    </div>
+
+    <div class="sv-video-bottom">
+
+      <div class="sv-play-label" id="svVideoLabel">
+        VIDEO 01 · SPORTS COLLECTION
+      </div>
+
+      <div class="sv-nav">
+
+        <button
+          type="button"
+          class="sv-arrow"
+          id="svPrev"
+          aria-label="Previous video"
+        >‹</button>
+
+        <button
+          type="button"
+          class="sv-arrow"
+          id="svNext"
+          aria-label="Next video"
+        >›</button>
+
+      </div>
+
+    </div>
+
+    <!-- 10 VIDEO BUTTONS -->
+
+    <div class="sv-dots" id="svDots">
+
+      <button type="button" class="sv-dot active" data-index="0">01</button>
+      <button type="button" class="sv-dot" data-index="1">02</button>
+      <button type="button" class="sv-dot" data-index="2">03</button>
+      <button type="button" class="sv-dot" data-index="3">04</button>
+      <button type="button" class="sv-dot" data-index="4">05</button>
+      <button type="button" class="sv-dot" data-index="5">06</button>
+      <button type="button" class="sv-dot" data-index="6">07</button>
+      <button type="button" class="sv-dot" data-index="7">08</button>
+      <button type="button" class="sv-dot" data-index="8">09</button>
+      <button type="button" class="sv-dot" data-index="9">10</button>
+
+    </div>
+
+    <div class="sv-progress">
+      <div class="sv-progress-fill" id="svProgress"></div>
+    </div>
+
+    <div class="sv-bottom-caption">
+      SELECT ANY VIDEO OR USE THE ARROWS TO EXPLORE
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+(function() {
+
+  const videos = [
+    "videos/video1.mp4",
+    "videos/video2.mp4",
+    "videos/video3.mp4",
+    "videos/video4.mp4",
+    "videos/video5.mp4",
+    "videos/video6.mp4",
+    "videos/video7.mp4",
+    "videos/video8.mp4",
+    "videos/video9.mp4",
+    "videos/video10.mp4"
+  ];
+
+  const video = document.getElementById("svMainVideo");
+  const counter = document.getElementById("svCounter");
+  const label = document.getElementById("svVideoLabel");
+  const dots = document.querySelectorAll("#svDots .sv-dot");
+  const progress = document.getElementById("svProgress");
+
+  let current = 0;
+
+  function showVideo(index) {
+
+    current = (index + videos.length) % videos.length;
+
+    video.pause();
+
+    video.src = videos[current];
+    video.load();
+
+    counter.textContent =
+      String(current + 1).padStart(2,"0") + " / 10";
+
+    label.textContent =
+      "VIDEO " + String(current + 1).padStart(2,"0") +
+      " · SPORTS COLLECTION";
+
+    progress.style.width =
+      ((current + 1) / videos.length * 100) + "%";
+
+    dots.forEach((dot,i) => {
+
+      dot.classList.toggle("active",i === current);
+
+      dot.setAttribute(
+        "aria-current",
+        i === current ? "true" : "false"
+      );
+
+    });
+
+  }
+
+  document.getElementById("svPrev").addEventListener("click",function() {
+    showVideo(current - 1);
+  });
+
+  document.getElementById("svNext").addEventListener("click",function() {
+    showVideo(current + 1);
+  });
+
+  dots.forEach(dot => {
+
+    dot.addEventListener("click",function() {
+      showVideo(Number(dot.dataset.index));
+    });
+
+  });
+
+  showVideo(0);
+
+})();
+</script>
+
+</section>
+
 <div class="sv-wrap">
 
     <header class="sv-header">
