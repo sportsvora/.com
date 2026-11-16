@@ -1,12 +1,71 @@
+# robots.txt for https://www.sportsvora.com
+# Last updated: 2026-11-16
 
-# Sport Vora - Robots.txt
-# Allow all search engine crawlers
+# ------------------------------------------------------------
+# 1. Main search engines: full access
+# ------------------------------------------------------------
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Yandex
+User-agent: Baiduspider
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
 
+# ------------------------------------------------------------
+# 2. Aggressive SEO scrapers: blocked (they waste server bandwidth
+#    and give you no search traffic)
+# ------------------------------------------------------------
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: PetalBot
+Disallow: /
+
+# ------------------------------------------------------------
+# 3. AI training crawlers (optional)
+#    Remove this block if you WANT your content used by AI tools.
+# ------------------------------------------------------------
+User-agent: GPTBot
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: anthropic-ai
+User-agent: ClaudeBot
+User-agent: Bytespider
+Disallow: /
+
+# ------------------------------------------------------------
+# 4. Everyone else
+# ------------------------------------------------------------
 User-agent: *
 Allow: /
 
-# Block private or unnecessary system directories
+# Private and system folders
 Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
 
-# XML Sitemap
-Sitemap: https://sportsvora.com/sitemap.xml
+# Avoid duplicate pages from URL parameters
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?session=
+Disallow: /*?sessionid=
+Disallow: /*?utm_
+
+# Do not block CSS, JS or images: Google needs them to render pages
+Allow: /*.css$
+Allow: /*.js$
+Allow: /images/
+
+# ------------------------------------------------------------
+# Sitemap (same www version as the URLs inside it)
+# ------------------------------------------------------------
+Sitemap: https://www.sportsvora.com/sitemap.xml
